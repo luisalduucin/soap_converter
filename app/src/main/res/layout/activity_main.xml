@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryLight"
-    tools:context="mx.com.cierto.soapweather.MainActivity">
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context="mx.com.luisalduucin.soapweather.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

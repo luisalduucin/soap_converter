@@ -1,7 +1,5 @@
-package mx.com.cierto.soapweather;
+package mx.com.luisalduucin.soapweather;
 
-
-import java.util.List;
 
 class ConverterCard {
     private String title;

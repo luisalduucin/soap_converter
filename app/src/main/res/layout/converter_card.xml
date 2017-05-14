@@ -76,10 +76,10 @@
                 android:textSize="@dimen/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="11dp"
                 android:layout_marginStart="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/from_unit_label" />
+                app:layout_constraintTop_toBottomOf="@+id/from_unit_label"
+                app:layout_constraintLeft_toLeftOf="parent" />
 
             <TextView android:id="@+id/to_unit_value"
                 android:text="Grams"
@@ -91,19 +91,38 @@
                 app:layout_constraintLeft_toRightOf="@+id/to_unit_label"
                 app:layout_constraintTop_toBottomOf="@+id/from_unit_value" />
 
-            <ImageView android:id="@+id/unit_image"
-                android:contentDescription="Unit Image"
+            <TextView android:id="@+id/result_label"
+                android:text="Result:"
+                android:textSize="@dimen/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:adjustViewBounds="true"
-                android:maxWidth="100dp"
-                android:maxHeight="100dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_time"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/to_unit_label" />
+
+            <TextView android:id="@+id/result_value"
+                android:text="50.45"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="52dp"
+                app:layout_constraintLeft_toRightOf="@+id/result_label"
+                app:layout_constraintTop_toBottomOf="@+id/to_unit_value" />
+
+            <!--<ImageView android:id="@+id/delete_image"-->
+                <!--android:contentDescription="Unit Image"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:layout_marginEnd="16dp"-->
+                <!--android:adjustViewBounds="true"-->
+                <!--android:maxWidth="100dp"-->
+                <!--android:maxHeight="100dp"-->
+                <!--android:scaleType="fitCenter"-->
+                <!--app:layout_constraintTop_toTopOf="parent"-->
+                <!--app:layout_constraintRight_toRightOf="parent" />-->
 
            <Button android:id="@+id/convert"
                android:text="Convert"
@@ -115,7 +134,7 @@
                android:layout_marginLeft="8dp"
                app:layout_constraintRight_toRightOf="parent"
                app:layout_constraintBottom_toBottomOf="parent"
-               app:layout_constraintTop_toTopOf="@+id/to_unit_label"
+               app:layout_constraintTop_toTopOf="@+id/result_label"
                app:layout_constraintLeft_toLeftOf="parent"
                android:layout_marginStart="8dp"
                android:layout_marginEnd="8dp" />

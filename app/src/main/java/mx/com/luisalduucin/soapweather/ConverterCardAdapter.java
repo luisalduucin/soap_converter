@@ -1,4 +1,4 @@
-package mx.com.cierto.soapweather;
+package mx.com.luisalduucin.soapweather;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -32,8 +32,7 @@ class ConverterCardAdapter extends RecyclerView.Adapter<ConverterCardAdapter.MyV
 //        holder.value.setText(converterCard.getValue());
 //        holder.image.setImageResource(converterCard.getImageResource());
 
-        // loading album cover using Glide library
-        //Glide.with(mContext).load(converterCard.getThumbnail()).into(holder.thumbnail);
+//        Glide.with(context).load(R.drawable.ic_delete).dontAnimate().into(holder.image);
     }
 
     @Override
@@ -51,7 +50,7 @@ class ConverterCardAdapter extends RecyclerView.Adapter<ConverterCardAdapter.MyV
             super(view);
             title = (TextView) view.findViewById(R.id.converter_title);
 //            value = (TextView) view.findViewById(R.id.to_convert_value);
-//            image = (ImageView) view.findViewById(R.id.unit_image);
+//            image = (ImageView) view.findViewById(R.id.delete_image);
         }
     }
 }

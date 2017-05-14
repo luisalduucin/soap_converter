@@ -1,4 +1,4 @@
-package mx.com.cierto.soapweather;
+package mx.com.luisalduucin.soapweather;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
