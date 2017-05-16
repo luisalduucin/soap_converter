@@ -7,7 +7,7 @@ import mx.com.luisalduucin.soapweather.SOAPConverter;
 
 public class WeightConverter extends SOAPConverter {
 
-    private enum Units {
+    public enum Units {
 
         Grains("Grains"),
         Scruples("Scruples"),
@@ -44,7 +44,7 @@ public class WeightConverter extends SOAPConverter {
     }
 
     @Override
-    public String getOperationName() {
+    protected String getOperationName() {
         return "ConvertWeight";
     }
 

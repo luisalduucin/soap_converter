@@ -9,17 +9,22 @@ import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 public abstract class SOAPConverter implements Converter {
 
-    private static final String WSDL_TARGET_NAMESPACE = "http://www.naveenbalani.com/webservices/WassupAndroidService/";
+    private static final String WSDL_TARGET_NAMESPACE = "http://www.webserviceX.NET/";
 
-    private static final String SOAP_ADDRESS = "http://naveenbalani.com/WassupAndroid.asmx";
+    private static final String SOAP_ADDRESS = "http://www.webservicex.net/ConvertWeight.asmx";
 
     protected Map<String, String> params;
 
     public abstract SOAPConverter setToConvertValue(String value);
+
+    public SOAPConverter() {
+        params = new HashMap<>();
+    }
 
     public SOAPConverter setFromUnits(String units) {
         params.put("FromUnit", units);
@@ -31,7 +36,7 @@ public abstract class SOAPConverter implements Converter {
         return this;
     }
 
-    public abstract String getOperationName();
+    protected abstract String getOperationName();
 
     public String getWsdlTargetNamespace() {
         return WSDL_TARGET_NAMESPACE;
@@ -41,21 +46,21 @@ public abstract class SOAPConverter implements Converter {
         return SOAP_ADDRESS;
     }
 
-    public SoapObject execute() throws IOException, XmlPullParserException {
+    public double execute() throws IOException, XmlPullParserException {
         SoapObject request = new SoapObject(getWsdlTargetNamespace(), getOperationName());
 
         for (String paramName : params.keySet()) {
             request.addProperty(paramName, params.get(paramName));
         }
 
-        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
         envelope.dotNet = true;
         envelope.implicitTypes = true;
         envelope.setAddAdornments(false);
 
         envelope.setOutputSoapObject(request);
 
-        final HttpTransportSE httpTransportSE = new HttpTransportSE(getSoapAddress());
+        HttpTransportSE httpTransportSE = new HttpTransportSE(getSoapAddress());
         httpTransportSE.debug = true;
 
         String soapAction = getWsdlTargetNamespace() + getOperationName();
@@ -65,7 +70,7 @@ public abstract class SOAPConverter implements Converter {
         Log.d("SOAPConverter--request", httpTransportSE.requestDump);
         Log.d("SOAPConverter--response", httpTransportSE.responseDump);
 
-        return (SoapObject) envelope.getResponse();
+        return Double.parseDouble(envelope.getResponse().toString());
     }
 
 }
