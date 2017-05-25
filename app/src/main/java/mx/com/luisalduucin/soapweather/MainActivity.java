@@ -1,8 +1,6 @@
 package mx.com.luisalduucin.soapweather;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,15 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         converterCards = new ArrayList<>();
@@ -50,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void prepareWeatherCards() {
-        converterCards.add(new ConverterCard("Weight Unit Converter", "0.0"));
-        converterCards.add(new ConverterCard("Area Unit Converter", "0.0"));
-        converterCards.add(new ConverterCard("Cooking Unit Converter", "0.0"));
+        UnitConverter unitConverter = new UnitConverter();
+        converterCards.add(new ConverterCard("Weight Unit Converter", this, unitConverter.weight()));
+        converterCards.add(new ConverterCard("Temperature Unit Converter", this, unitConverter.temperature()));
+        converterCards.add(new ConverterCard("Speed Unit Converter", this, unitConverter.speed()));
         adapter.notifyDataSetChanged();
     }
 

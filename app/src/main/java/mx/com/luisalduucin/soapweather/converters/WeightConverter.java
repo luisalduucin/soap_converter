@@ -1,55 +1,66 @@
 package mx.com.luisalduucin.soapweather.converters;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
-import mx.com.luisalduucin.soapweather.SOAPConverter;
+import mx.com.luisalduucin.soapweather.Units;
 
-public class WeightConverter extends SOAPConverter {
+public class WeightConverter extends SOAPConverter<WeightConverter.WeightUnits> {
 
-    public enum Units {
+    public final class WeightUnits implements Units {
 
-        Grains("Grains"),
-        Scruples("Scruples"),
-        Carats("Carats"),
-        Grams("Grams"),
-        Pennyweight("Pennyweight"),
-        DramAvoir("DramAvoir"),
-        DramApoth("DramApoth"),
-        OuncesAvoir("OuncesAvoir"),
-        OuncesTroyApoth("OuncesTroyApoth"),
-        Poundals("Poundals"),
-        PoundsTroy("PoundsTroy"),
-        PoundsAvoir("PoundsAvoir"),
-        Kilograms("Kilograms"),
-        Stones("Stones"),
-        QuarterUS("QuarterUS"),
-        Slugs("Slugs"),
-        weight100UScwt("weight100UScwt"),
-        ShortTons("ShortTons"),
-        MetricTonsTonne("MetricTonsTonne"),
-        LongTons("LongTons");
+        private List<String> values = new ArrayList<>();
 
-        private final String unit;
+        static final String GRAINS = "Grains";
+        static final String GRAMS = "Grams";
+        static final String PENNYWEIGHT = "Pennyweight";
+        static final String OUNCESTROYAPOTH = "OuncesTroyApoth";
+        static final String POUNDALS = "Poundals";
+        static final String KILOGRAMS = "Kilograms";
+        static final String STONES = "Stones";
 
-        Units(String unit) {
-            this.unit = unit;
+        @Override
+        public List<String> getValues() {
+            values.add(GRAINS);
+            values.add(GRAMS);
+            values.add(PENNYWEIGHT);
+            values.add(OUNCESTROYAPOTH);
+            values.add(POUNDALS);
+            values.add(KILOGRAMS);
+            values.add(STONES);
+            return values;
+        }
+
+        @Override
+        public void addUnit(String unit) {
+            values.add(unit);
+        }
+
+        @Override
+        public void removeUnit(String unit) {
+            values.remove(unit);
         }
     }
 
+    private WeightUnits units = new WeightUnits();
+
     @Override
-    public SOAPConverter setToConvertValue(String value) {
-        params.put("Weight", value);
-        return this;
+    WeightUnits getUnits() {
+        return units;
     }
 
     @Override
-    protected String getOperationName() {
+    String getOperationName() {
         return "ConvertWeight";
     }
 
     @Override
-    public List<Units> getAvailableUnits() {
-        return Arrays.asList(Units.values());
+    String getValueName() {
+        return "Weight";
+    }
+
+    @Override
+    String getSoapAddress() {
+        return "http://www.webservicex.net/ConvertWeight.asmx";
     }
 }

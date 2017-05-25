@@ -40,4 +40,9 @@ dependencies {
 
     //KSOAP
     compile 'com.google.code.ksoap2-android:ksoap2-android:3.6.2'
+
+    //RxJava
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    provided 'javax.annotation:jsr250-api:1.0'
 }

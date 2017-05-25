@@ -19,7 +19,7 @@
             android:layout_height="match_parent">
 
             <TextView android:id="@+id/converter_title"
-                android:text="Converter Title"
+                android:text="@string/converter_title"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
                 app:layout_constraintLeft_toLeftOf="parent" />
 
             <TextView android:id="@+id/to_convert_label"
-                android:text="To convert:"
+                android:text="@string/to_convert"
                 android:textSize="@dimen/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/converter_title" />
 
             <android.support.design.widget.TextInputEditText android:id="@+id/to_convert_value"
-                android:text="50.45"
+                android:text="@string/initial_value"
                 android:textSize="15sp"
                 android:maxLength="6"
                 android:inputType="numberDecimal"
@@ -52,7 +52,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/converter_title" />
 
             <TextView android:id="@+id/from_unit_label"
-                android:text="From unit:"
+                android:text="@string/from_unit"
                 android:textSize="@dimen/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 app:layout_constraintLeft_toLeftOf="parent" />
 
             <TextView android:id="@+id/from_unit_value"
-                android:text="Grams"
+                android:text="@string/initial_unit"
                 android:textSize="15sp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/to_convert_value" />
 
             <TextView android:id="@+id/to_unit_label"
-                android:text="To unit:"
+                android:text="@string/to_unit"
                 android:textSize="@dimen/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 app:layout_constraintLeft_toLeftOf="parent" />
 
             <TextView android:id="@+id/to_unit_value"
-                android:text="Grams"
+                android:text="@string/initial_unit"
                 android:textSize="15sp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/from_unit_value" />
 
             <TextView android:id="@+id/result_label"
-                android:text="Result:"
+                android:text="@string/result"
                 android:textSize="@dimen/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/to_unit_label" />
 
             <TextView android:id="@+id/result_value"
-                android:text="50.45"
+                android:text="@string/initial_value"
                 android:textSize="15sp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -111,21 +111,8 @@
                 app:layout_constraintLeft_toRightOf="@+id/result_label"
                 app:layout_constraintTop_toBottomOf="@+id/to_unit_value" />
 
-            <!--<ImageView android:id="@+id/delete_image"-->
-                <!--android:contentDescription="Unit Image"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="16dp"-->
-                <!--android:layout_marginEnd="16dp"-->
-                <!--android:adjustViewBounds="true"-->
-                <!--android:maxWidth="100dp"-->
-                <!--android:maxHeight="100dp"-->
-                <!--android:scaleType="fitCenter"-->
-                <!--app:layout_constraintTop_toTopOf="parent"-->
-                <!--app:layout_constraintRight_toRightOf="parent" />-->
-
            <Button android:id="@+id/convert"
-               android:text="Convert"
+               android:text="@string/convert"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:layout_marginBottom="8dp"

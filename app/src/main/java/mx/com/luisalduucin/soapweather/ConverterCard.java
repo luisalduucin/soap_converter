@@ -1,14 +1,23 @@
 package mx.com.luisalduucin.soapweather;
 
 
+import android.content.Context;
+
+import java.util.List;
+
 class ConverterCard {
     private String title;
-    private String value;
-    private int imageResource;
+    private Context context;
+    private Converter converter;
 
-    ConverterCard(String title, String value) {
+    ConverterCard(String title, Context context, Converter converter) {
         this.title = title;
-        this.value = value;
+        this.context = context;
+        this.converter = converter;
+    }
+
+    public List<String> getUnits() {
+        return converter.getAvailableUnits().getValues();
     }
 
     String getTitle() {
@@ -19,19 +28,19 @@ class ConverterCard {
         this.title = title;
     }
 
-    String getValue() {
-        return value;
+    public Context getContext() {
+        return context;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setContext(Context context) {
+        this.context = context;
     }
 
-    public int getImageResource() {
-        return imageResource;
+    public Converter getConverter() {
+        return converter;
     }
 
-    public void setImageResource(int imageResource) {
-        this.imageResource = imageResource;
+    public void setConverter(Converter converter) {
+        this.converter = converter;
     }
 }

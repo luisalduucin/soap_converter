@@ -1,8 +1,16 @@
 package mx.com.luisalduucin.soapweather;
 
 
-import java.util.List;
+import rx.Observable;
 
-interface Converter<T> {
-    List<T> getAvailableUnits();
+public interface Converter<T extends Units> {
+    T getAvailableUnits();
+
+    Converter setFromUnits(String unit);
+
+    Converter setToUnits(String unit);
+
+    Converter setToConvertValue(String value);
+
+    Observable<Double> convert();
 }
